@@ -68,7 +68,7 @@ def imread_and_crop(fpath, inp_size, margin=0, random_crop=False):
         img = tf.random_crop(img, (crop_size, crop_size, 3))
     else: # central crop
         ho = (shape[0] - crop_size) // 2
-        wo = (shape[0] - crop_size) // 2
+        wo = (shape[1] - crop_size) // 2
         img = img[ho:ho+crop_size, wo:wo+crop_size, :]
 
     img = tf.image.resize_images(img, (inp_size, inp_size),
